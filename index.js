@@ -2,11 +2,7 @@ import { Component } from 'preact';
 import { forEachObjIndexed } from 'ramda';
 
 class SpeechBase extends Component {
-	state = {
-		active: false
-	}
-
-	onVoice = (text) => {
+	onVoice(text) {
 		try {
 			forEachObjIndexed(
 				(value, key) => {
@@ -21,23 +17,25 @@ class SpeechBase extends Component {
 		}
 	}
 
-	onSpeechEnd = () => console.log(
-		'You were quiet for a while so voice recognition turned itself off.'
-	);
+	onSpeechEnd() {
+		console.log(
+			'You were quiet for a while so voice recognition turned itself off.'
+		);
+	}
 
-	onEnd = () => {
+	onEnd() {
 		if (this.state.active) {
 			console.log('restarting recognition');
 			this.recognition.start();
 		}
 	}
 
-	onError = (event) => {
+	onError(event) {
 		if (event.error == 'no-speech')
 			console.log('no speech detected');
 	}
 
-	onResult = (event) => {
+	onResult(event) {
 		let current = event.resultIndex;
 
 		let transcript = event.results[current][0].transcript;
@@ -50,7 +48,7 @@ class SpeechBase extends Component {
 		}
 	}
 
-	trigger = () => {
+	trigger() {
 		this.setState({ active: !this.state.active });
 		if (this.state.active)
 			this.recognition.start();
@@ -58,7 +56,12 @@ class SpeechBase extends Component {
 			this.recognition.stop();
 	}
 
-	componentDidMount = () => {
+	constructor() {
+		super();
+		this.state = { active: false };
+	}
+
+	componentDidMount() {
 		if (typeof window !== 'undefined') {
 			const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 			this.recognition = new SpeechRecognition();
@@ -74,12 +77,14 @@ class SpeechBase extends Component {
 		}
 	}
 
-	render = ({ style }) => (
-		<a style={style} onClick={this.trigger}>
-			Speech recognition
-			{ this.state.active ? ' active' : ' disabled' }
-		</a>
-	)
+	render({ style }) {
+		return (
+			<a style={style} onClick={this.trigger}>
+				Speech recognition
+				{ this.state.active ? ' active' : ' disabled' }
+			</a>
+		);
+	}
 }
 
 export default SpeechBase;

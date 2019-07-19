@@ -1,6 +1,6 @@
 {
   "name": "preact-speech",
-  "version": "0.0.0",
+  "version": "0.0.0b",
   "description": "A simple speech component",
   "source": "index.js",
   "module": "dist/speech.es.js",
@@ -27,7 +27,7 @@
   "bundlesize": [
     {
       "path": "dist/speech.js",
-      "maxSize": "711B"
+      "maxSize": "683B"
     }
   ],
   "babel": {
@@ -44,7 +44,7 @@
       [
         "@babel/plugin-proposal-class-properties",
         {
-            "loose": true
+          "loose": true
         }
       ]
     ]
