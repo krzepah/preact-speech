@@ -1,4 +1,4 @@
-import { Component } from 'preact';
+import { h, Component } from 'preact';
 import { forEachObjIndexed } from 'ramda';
 
 class SpeechBase extends Component {
