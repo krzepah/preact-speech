@@ -1,6 +1,6 @@
 {
   "name": "preact-speech",
-  "version": "0.0.0b",
+  "version": "0.0.0c",
   "description": "A simple speech component",
   "source": "index.js",
   "module": "dist/speech.es.js",
