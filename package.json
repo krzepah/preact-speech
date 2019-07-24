@@ -27,7 +27,7 @@
   "bundlesize": [
     {
       "path": "dist/speech.js",
-      "maxSize": "683B"
+      "maxSize": "686B"
     }
   ],
   "babel": {
