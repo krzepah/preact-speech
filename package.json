@@ -72,7 +72,7 @@
     "documentation": "^12.0.2",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.10.0",
-    "eslint": "^4.16.0",
+    "eslint": "^9.32.0",
     "eslint-config-developit": "^1.1.1",
     "gzip-size-cli": "^2.1.0",
     "html-looks-like": "^1.0.3",
